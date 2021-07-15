@@ -4,13 +4,82 @@ def web_page():
   else:
     gpio_state="OFF"
   
-  html = """<html><head> <title>ESP Web Server</title> <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="data:,"> <style>html{font-family: Helvetica; display:inline-block; margin: 0px auto; text-align: center;}
-  h1{color: #0F3376; padding: 2vh;}p{font-size: 1.5rem;}.button{display: inline-block; background-color: #e7bd3b; border: none; 
-  border-radius: 4px; color: white; padding: 16px 40px; text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}
-  .button2{background-color: #4286f4;}</style></head><body> <h1>ESP Web Server</h1> 
-  <p>GPIO state: <strong>""" + gpio_state + """</strong></p><p><a href="/?led=on"><button class="button">ON</button></a></p>
-  <p><a href="/?led=off"><button class="button button2">OFF</button></a></p></body></html>"""
+  html = """
+  
+  <html>
+
+  <head>
+      <title>ESP Web Server</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="data:,">
+      <style>
+          html {
+              font-family: Helvetica;
+              display: inline-block;
+              margin: 0px auto;
+              text-align: center;
+              background-color: black;
+              overflow: hidden;
+          }
+
+          
+          div {
+              border: 1px solid white;
+              padding: 2vh 2vh;
+              border-radius:10px;
+              
+              min-height: 100vh;
+            
+          }
+
+          h1 {
+              color: red;
+              padding: 2vh;
+          }
+
+          p {
+              color: aliceblue;
+              font-size: 1.5rem;
+          }
+
+          .button {
+              display: inline-block;
+              background-color: green;
+              border: none;
+              border-radius: 4px;
+              color: white;
+              padding: 16px 40px;
+              text-decoration: none;
+              font-size: 30px;
+              margin: 2px;
+              cursor: pointer;
+          }
+
+          .button2 {
+              background-color: red;
+          }
+
+          footer {
+              padding-top: 10rem;
+              color: white;
+          }
+      </style>
+  </head>
+
+  <body>
+      <div class="container"> >
+          <h1>ESP Web Server</h1>
+          <p>GPIO state: <strong>""" + gpio_state + """</strong></p>
+          <p><a href="/?led=on"><button class="button">ON</button></a></p>
+          <p><a href="/?led=off"><button class="button button2">OFF</button></a></p>
+          <footer>Created by kno-be.<br>2021</footer>
+      </div>
+      
+  </body>
+
+  </html>
+  
+  """
   return html
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
